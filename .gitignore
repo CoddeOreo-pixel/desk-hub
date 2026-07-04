@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.deskhub-logs/
+.deskhub-lang
+*.log
+qr-*.png
+.trae/
+
+# 用户上传的快捷方式（含本机绝对路径，不应入库）
+data/shortcuts/

@@ -1,0 +1,25 @@
+{
+  "server": {
+    "port": 3000
+  },
+  "apps": [],
+  "websites": [
+    {
+      "name": "抖音",
+      "url": "https://douyin.com",
+      "icon": "🌐"
+    }
+  ],
+  "commands": {
+    "presets": [
+      "shutdown",
+      "restart",
+      "hibernate",
+      "lock"
+    ],
+    "custom": []
+  },
+  "music": {
+    "defaultLimit": 20
+  }
+}

@@ -1,0 +1,405 @@
+/* Fonts loaded from index.html via local CDN */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brutalist Grid Theme ─── */
+:root {
+  /* Surfaces — layered blacks */
+  --surface-0: #000000;
+  --surface-1: #0a0a0a;
+  --surface-2: #141414;
+  --surface-3: #1e1e1e;
+
+  /* Content */
+  --content-primary: #f0f0f0;
+  --content-secondary: #888888;
+  --content-tertiary: #555555;
+
+  /* Dual accent: green + orange */
+  --accent: #22C55E;
+  --accent-muted: #4ADE80;
+  --accent-subtle: rgba(34, 197, 94, 0.12);
+  --accent-orange: #FF6B00;
+  --accent-orange-muted: #FF8C33;
+  --accent-orange-subtle: rgba(255, 107, 0, 0.12);
+
+  /* Borders — visible, part of the grid aesthetic */
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  /* Shadows */
+  --shadow: 0 2px 0 rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 4px 0 rgba(0, 0, 0, 0.9);
+
+  /* Grid pattern */
+  --grid-color: rgba(255, 255, 255, 0.08);
+  --grid-size: 24px;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow: hidden;
+    font-family: 'Fira Sans', sans-serif;
+    background: var(--surface-0);
+    color: var(--content-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--content-tertiary);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--content-secondary);
+  }
+}
+
+/* ─── Grid Textures ─── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.grid-bg-dense {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+/* ─── Surfaces ─── */
+.surface-1 {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+}
+.surface-2 {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.surface-3 {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+}
+
+/* ─── Card ─── */
+.card {
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  transition: all 0.12s ease-out;
+}
+.card-interactive {
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+}
+.card-interactive:hover {
+  background: var(--surface-3);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  transform: translateY(-2px);
+}
+.card-interactive:active {
+  transform: translateY(0);
+}
+
+/* ─── Nav Items ─── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  color: var(--content-tertiary);
+  border: 1px solid transparent;
+}
+.nav-item:hover {
+  color: var(--content-secondary);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.nav-item-active {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent);
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  user-select: none;
+  background: var(--accent);
+  color: #000;
+  border: 2px solid var(--accent);
+}
+.btn-accent:hover {
+  background: var(--accent-muted);
+  border-color: var(--accent-muted);
+  box-shadow: 0 0 12px var(--accent-subtle);
+}
+.btn-accent:active {
+  transform: scale(0.97);
+}
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  user-select: none;
+  background: var(--accent-orange);
+  color: #000;
+  border: 2px solid var(--accent-orange);
+}
+.btn-orange:hover {
+  background: var(--accent-orange-muted);
+  border-color: var(--accent-orange-muted);
+  box-shadow: 0 0 12px var(--accent-orange-subtle);
+}
+.btn-orange:active {
+  transform: scale(0.97);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  user-select: none;
+  color: var(--content-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+}
+.btn-ghost:hover {
+  color: var(--content-primary);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.12s ease-out;
+  cursor: pointer;
+  user-select: none;
+  color: #fb7185;
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.2);
+}
+.btn-danger:hover {
+  background: rgba(251, 113, 133, 0.18);
+  border-color: rgba(251, 113, 133, 0.4);
+}
+
+/* ─── Input ─── */
+.input {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'Fira Code', monospace;
+  outline: none;
+  transition: all 0.12s ease-out;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  color: var(--content-primary);
+}
+.input::placeholder {
+  color: var(--content-tertiary);
+}
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-subtle);
+}
+
+/* ─── Badge ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* ─── Divider ─── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-strong);
+}
+
+/* ─── Animations ─── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out both;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.15s ease-out both;
+}
+.animate-scale-in {
+  animation: scale-in 0.12s ease-out both;
+}
+.animate-modal-in {
+  animation: modal-in 0.12s ease-out both;
+}
+@keyframes modal-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-overlay-in {
+  animation: overlay-in 0.1s ease-out both;
+}
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ─── Mobile Overrides (< 1024px) ─── */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* 移动端交互优化 */
+  .card-interactive:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
+    background: var(--surface-2);
+  }
+  .card-interactive:active {
+    background: var(--surface-3);
+    border-color: var(--accent);
+  }
+
+  /* 移动端卡片内图标稍大 */
+  .card-interactive .text-2xl {
+    font-size: 1.75rem;
+  }
+
+  /* 移动端按钮增大触摸目标 */
+  .btn, .btn-accent, .btn-ghost, .btn-danger, .btn-orange {
+    padding: 0.75rem 1.125rem;
+    min-height: 44px;
+  }
+
+  /* 移动端输入框增大 */
+  .input {
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+  }
+
+  /* 移动端模态框全屏 */
+  .animate-modal-in {
+    animation: modal-in 0.15s ease-out both;
+  }
+
+  /* 移动端页面间距调整 */
+  main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}
